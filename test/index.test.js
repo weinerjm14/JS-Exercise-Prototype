@@ -78,7 +78,7 @@ describe('Instances of Person', () => {
   })
 })
 
-xdescribe('Instances of Car', () => {
+describe('Instances of Car', () => {
   let batmobile
   beforeEach(() => {
     batmobile = new Car('BatMobile', 20)
@@ -130,7 +130,7 @@ xdescribe('Instances of Car', () => {
   })
 })
 
-xdescribe('Instances of Baby', () => {
+describe('Instances of Baby', () => {
   let baby
   beforeEach(() => {
     baby = new Baby('Lucy', 5, 'trains')
