@@ -110,10 +110,11 @@ Baby.prototype.play= function(){
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. global
-  2. implicit
-  3. explicit
-  4. binding
+  1. global - binds to the container your in, as the the window, app, or program. this produces alert windows for example
+  2. implicit - used with simple dot notation, the most common seen in javascript. for example this.favoriteToy line 107 above.
+  3. explicit-- used with .call or .apply, such as person.call line 102 above. mostly used with constructor functions.
+  4. New binding-- used to instanciate an instance of a constructor function. as in const vampire = new Moster ('vampire', 5, 'bite'); 
+      where the values passed in corresponde to paramenters in the constructor function.
 */
 
 
