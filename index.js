@@ -39,10 +39,22 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
-
+Person.prototype.eat = function(food) {
+  if (this.stomach.length < 10){
+    this.stomach.push(food);
+  }
+}
+Person.prototype.poop = function (){
+  return this.stomach = [];
+}
+Person.prototype.toString = function (){
+  return `${this.name}, ${this.age}`;
+}
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -57,9 +69,27 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
 
 }
+Car.prototype.fill = function(gallons){
+  return this.tank += gallons
+}
+Car.prototype.drive = function (distance) {
+  if (this.tank <= distance/this.milesPerGallon){
+    this.odometer += (this.tank * this.milesPerGallon);
+    this.tank = 0;
+    return `I ran out of fuel at ${this.odometer} miles!`;
+  }
+    this.odometer += distance;
+    this.tank -= (distance/this.milesPerGallon);
+  };
+ 
+  
 
 /*
   TASK 3
@@ -68,18 +98,23 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age),
+  this.favoriteToy = favoriteToy;
 }
-
+Baby.prototype = Object.create(Person.prototype);
+Baby.prototype.play= function(){
+  return `Playing with ${this.favoriteToy}.`
+}
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. global - binds to the container your in, as the the window, app, or program. this produces alert windows for example
+  2. implicit - used with simple dot notation, the most common seen in javascript. for example this.favoriteToy line 107 above.
+  3. explicit-- used with .call or .apply, such as person.call line 102 above. mostly used with constructor functions.
+  4. New binding-- used to instanciate an instance of a constructor function. as in const vampire = new Moster ('vampire', 5, 'bite'); 
+      where the values passed in corresponde to paramenters in the constructor function.
 */
 
 
